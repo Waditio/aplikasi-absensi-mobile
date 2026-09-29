@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quick_absensi_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -45,6 +46,29 @@ class HomeScreen extends StatelessWidget {
                   // Header
                   Row(
                     children: [
+                      // Tombol kembali
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            color: Color(0xFF4A0B0B),
+                            size: 25,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 10),
+
+                      // Search
                       Expanded(
                         child: Container(
                           height: 48,
@@ -72,8 +96,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
 
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 10),
 
+                      // Profile
                       Container(
                         width: 48,
                         height: 48,
@@ -122,7 +147,14 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'ABSENSI',
                     description: 'Catat kehadiran dengan cepat',
                     icon: Icons.access_time_rounded,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const QuickAbsensiScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   const SizedBox(height: 18),
