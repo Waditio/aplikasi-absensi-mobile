@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'quick_absensi_screen.dart';
-
+import 'profile_screen.dart';
+import 'rekap_anggota_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -99,7 +100,7 @@ class HomeScreen extends StatelessWidget {
 
                       const SizedBox(width: 10),
 
-                      // Profile
+                      // Profile: membuka halaman profil
                       Container(
                         width: 48,
                         height: 48,
@@ -107,10 +108,21 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        child: const Icon(
-                          Icons.person_outline_rounded,
-                          color: Color(0xFF4A0B0B),
-                          size: 25,
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const ProfileScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.person_outline_rounded,
+                            color: Color(0xFF4A0B0B),
+                            size: 25,
+                          ),
                         ),
                       ),
                     ],
@@ -152,7 +164,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => const QuickAbsensiScreen(),
+                          builder: (context) =>
+                          const QuickAbsensiScreen(),
                         ),
                       );
                     },
@@ -160,13 +173,21 @@ class HomeScreen extends StatelessWidget {
 
                   const SizedBox(height: 18),
 
-                  // Rekap Anggota
+                  // Rekap Anggota: membuka halaman rekap
                   _FeatureCard(
                     title: 'REKAP',
                     subtitle: 'ANGGOTA',
                     description: 'Lihat data kehadiran anggota',
                     icon: Icons.bar_chart_rounded,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                          const RekapAnggotaScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   const Spacer(),
